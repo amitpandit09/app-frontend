@@ -1,0 +1,29 @@
+<div>
+	<br>
+	<mat-card>
+		<section class="mat-typography">
+			<h3>Faculty Login</h3>
+		</section>
+		
+		<mat-divider></mat-divider>
+		
+		<br>
+		
+		<form [formGroup]="createForm" class="create-form">
+			
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="username" formControlName="username" #username>
+			</mat-form-field>
+			<br>
+				<mat-form-field class="field-full-width">
+				<input matInput placeholder="password" formControlName="password" #password>
+			</mat-form-field>
+
+
+			<mat-divider>
+			</mat-divider>
+				<br><br>
+			<button type="submit" (click)="validateSecrets(username.value,password.value)" mat-raised-button color="primary">Login</button>
+		</form>
+	</mat-card>
+</div>

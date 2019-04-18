@@ -1,0 +1,5 @@
+  <mat-card>
+<button mat-raised-button color="primary" (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
+<br><mat-divider></mat-divider><br>
+<button mat-raised-button color="primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+  </mat-card>

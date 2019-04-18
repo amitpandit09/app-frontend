@@ -1,0 +1,113 @@
+<div>
+	<br>
+	<mat-card>
+		<section class="mat-typography">
+			<h3>Please fill up the below details</h3>
+		</section>
+		
+		<mat-divider></mat-divider>
+		
+		<br>
+		
+		<form [formGroup]="createForm" class="create-form">
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="Email address" formControlName="email" #email>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="Name" formControlName="name" #name>
+			</mat-form-field>
+
+				<mat-form-field class="field-full-width">
+				  <mat-select [(value)]="selected" matInput placeholder="Semester" formControlName="semester" #semester>
+				    <mat-option value="fall2019">Fall 2019</mat-option>
+				    <mat-option value="spring2020">Spring 2020</mat-option>
+				    <mat-option value="fall2020">Fall 2020</mat-option>
+				    <mat-option value="spring2021">Spring 2021</mat-option>
+				  </mat-select>
+				</mat-form-field>
+
+					<mat-form-field class="field-full-width">
+				<input matInput placeholder="Your favourite movie" formControlName="favMovie" #favMovie>
+			</mat-form-field>
+			<br>
+			
+			Why did you take the course?*<br><br>
+			<mat-radio-group class="field-full-width" [(ngModel)]="selectedCourseChoice" formControlName="courseReason" #courseReason>
+		  <mat-radio-button class="field-full-width" *ngFor="let coursesChoice of coursesChoices" [value]="coursesChoice">
+		    {{coursesChoice}}
+		  </mat-radio-button>
+		</mat-radio-group>
+			<br><br>
+
+			Which program are you registered in? *<br><br>
+			<mat-radio-group class="field-full-width" [(ngModel)]="selectedProgramChoice" formControlName="program" #program>
+				<mat-radio-button class="field-full-width" *ngFor="let programChoice of programChoices" [value]="programChoice">
+		    {{programChoice}}
+		  		</mat-radio-button>
+			</mat-radio-group>
+			<br><br>
+			
+			<mat-form-field class="field-full-width" >
+				<input matInput placeholder="What does Systems Integration mean to you? (try to answer in 2-3 lines)" formControlName="SImeaning" #SImeaning>
+			</mat-form-field>
+
+			<br><br>
+			Which area of concentration are you interested in?*<br><br>
+			<mat-radio-group class="field-full-width" [(ngModel)]="selectedConcentrationChoice" formControlName="concentration" #concentration>
+		<mat-radio-button class="field-full-width" *ngFor="let concentrationChoice of concentrationChoices" [value]="concentrationChoice">
+		    {{concentrationChoice}}
+		  		</mat-radio-button>
+			</mat-radio-group>
+
+			<br><br>
+
+			State your level of proficiency in programming with JavaScript*<br><br>
+			<mat-radio-group class="field-full-width" [(ngModel)]="selectedJavaScriptProficiencyChoice" formControlName="proficiency" #proficiency>
+			 <mat-radio-button  *ngFor="let javaScriptProficiencyChoice of javaScriptProficiencyChoices" [value]="javaScriptProficiencyChoice">
+		    {{javaScriptProficiencyChoice}}&nbsp;
+		  		</mat-radio-button>
+			</mat-radio-group>
+			<br><br>
+
+			Which type of Database are you more experienced with? *<br><br>
+			<mat-radio-group class="field-full-width" [(ngModel)]="selectedDatabaseChoice" formControlName="database" #database>
+			  <mat-radio-button  *ngFor="let databaseChoice of databaseChoices" [value]="databaseChoice">
+		    {{databaseChoice}}&nbsp;
+		  		</mat-radio-button>
+			</mat-radio-group>
+			<br><br>
+
+
+			Have you ever worked with Cloud services (i.e; AWS, Azure, Google Cloud)? *<br><br>
+	 		 <mat-radio-group class="field-full-width" [(ngModel)]="selectedCloudServiceChoice" formControlName="cloudservices" #cloudservices>
+			  <mat-radio-button  *ngFor="let cloudServiceChoice of cloudServiceChoices" [value]="cloudServiceChoice">
+		    {{cloudServiceChoice}}&nbsp;
+		  		</mat-radio-button>
+			</mat-radio-group>
+			<br><br>
+
+
+				<mat-form-field class="field-full-width">
+				<input matInput placeholder="Please list other technologies/languages/etc that you are experienced with." formControlName="technologies" #technologies>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="What are you hoping to do with your degree? What kind of job are you interested in pursuing?" formControlName="degree" #degree>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="What else would you like to say about your goals for this course?" formControlName="goals" #goals>
+			</mat-form-field>
+
+			<mat-divider>
+			</mat-divider>
+				<br><br>
+				
+				<button mat-raised-button color="accent" routerLink="/list">Back</button>
+				
+<button type="submit" (click)="addStudent(email.value,name.value,semester.value,favMovie.value,courseReason.value,program.value,SImeaning.value,concentration.value,proficiency.value,database.value,cloudservices.value,technologies.value,degree.value,goals.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+		</form>
+	</mat-card>
+</div>
