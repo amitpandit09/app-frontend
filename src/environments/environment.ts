@@ -4,7 +4,7 @@
 export const environment = {
  production: false,
  firebase: {
-   apiKey: ",
+   apiKey: "",
    authDomain: "myfirstfireproject-e19f6.firebaseapp.com",
    databaseURL: "https://myfirstfireproject-e19f6.firebaseio.com",
    projectId: "myfirstfireproject-e19f6",
